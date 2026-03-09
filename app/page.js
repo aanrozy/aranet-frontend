@@ -71,7 +71,7 @@ export default function Home() {
     const last = safeLocalStorage.getItem('lastTopicAddTime');
     if (last) {
       const elapsed = Math.floor((Date.now() - parseInt(last, 10)) / 1000);
-      const remaining = 3600 - elapsed;
+      const remaining = 60 - elapsed;
       if (remaining > 0) {
         setCountdown(remaining);
       }
@@ -110,7 +110,7 @@ export default function Home() {
       setNewTopic('');
       fetchTopics();
       safeLocalStorage.setItem('lastTopicAddTime', Date.now().toString());
-      setCountdown(3600);
+      setCountdown(60);
     } catch (err) {
       console.error(err);
       alert('Terjadi kesalahan.');
